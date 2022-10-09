@@ -4,13 +4,13 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 //GET
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findAll({
+// router.get('/', withAuth, async (req, res) => {
+//   try {
+//     const postData = await Post.findAll({
       
-    })
-  }
-})
+//     })
+//   }
+// })
 
 
 

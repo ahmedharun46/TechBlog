@@ -7,7 +7,7 @@ const commentData = [
         comment_text: "This is amazing!"
     },
     {
-        user_id: 4,
+        user_id: 1,
         post_id: 4,
         comment_text: "Wow, amazing work!"
     },
@@ -32,7 +32,7 @@ const commentData = [
         comment_text: "Wow I like that"
     },
     {
-        user_id: 5,
+        user_id: 2,
         post_id: 3,
         comment_text: "Very useful tool!"
     },
