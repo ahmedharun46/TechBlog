@@ -3,7 +3,15 @@ const { Post, User, Comment } = require('../models');
 const router = require('express').Router();
 
 router.get("/",function(req,res){
-    res.render("homepage")
+    Post.findAll({})
+    .then(data => {
+        let post = data.map((post) => post.get({plain: true}))
+        console.log("homeroute",post)
+        res.render("homepage",{post})
+    })
+})
+router.get("/dashboard",function(req,res){
+    res.render("dashboard")
 })
 
 
