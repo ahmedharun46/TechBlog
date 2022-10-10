@@ -4,13 +4,44 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 //GET
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const postData = await Post.findAll({
-      
-//     })
-//   }
-// })
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      attribute:['id', 'title', 'post_content'],
+      include: [{
+        model: Comment,
+        attributes: ['id', 'comment_text', 'user_id,'],
+        iclude:{
+          model: User,
+          attributes:['usernmae']
+        }
+      }]
+    });
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//GET
+router.get('/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      attribute:['id', 'title', 'post_content'],
+      include: [{
+        model: Comment,
+        attributes: ['id', 'comment_text', 'user_id,'],
+        iclude:{
+          model: User,
+          attributes:['usernmae']
+        }
+      }]
+    });
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
